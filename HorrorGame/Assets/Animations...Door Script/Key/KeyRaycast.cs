@@ -22,8 +22,8 @@ namespace KeySystem
         {
             RaycastHit hit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
-            if (Physics.Raycast(transform.position, fwd, out hit, rayLenght, mask))
+            
+            if (Physics.Raycast(transform.position, fwd, out hit, rayLenght))
             {
                 if (hit.collider.CompareTag(interactebleObject))
                 {

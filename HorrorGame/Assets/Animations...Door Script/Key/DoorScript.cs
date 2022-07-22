@@ -27,7 +27,7 @@ public class DoorScript : MonoBehaviour
                 if(!doOnce)
                 {
                     doorObj = hit.collider.gameObject.GetComponent<DoorController>();
-                 //   CrosshairChange(true);
+                  //  CrosshairChange(true);
                 }
                 isCrosshairActive = true;
                 doOnce = true;
