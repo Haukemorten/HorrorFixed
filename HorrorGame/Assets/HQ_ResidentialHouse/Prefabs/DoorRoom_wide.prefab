@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 487350}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorWide_handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,9 +71,11 @@ GameObject:
   m_Component:
   - component: {fileID: 473212}
   - component: {fileID: 6594724}
-  m_Layer: 0
+  - component: {fileID: 2283794464593371531}
+  - component: {fileID: 3778883759584234539}
+  m_Layer: 7
   m_Name: DoorWide_joint
-  m_TagString: Untagged
+  m_TagString: InteractiveObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +109,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8713635, y: 2.0534697, z: 0.04}
   m_Center: {x: 0.44388923, y: 1.0529175, z: 0.01999955}
+--- !u!95 &2283794464593371531
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115476}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a55581aefede8cf49966320d24ab0ea1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3778883759584234539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3db9797d64a62b44ab46b0a88d78f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &132866
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: doorKnob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +267,6 @@ GameObject:
   - component: {fileID: 481148}
   - component: {fileID: 11189298}
   - component: {fileID: 6501768}
-  - component: {fileID: 11496544}
   m_Layer: 0
   m_Name: DoorRoom_wide
   m_TagString: Untagged
@@ -285,46 +317,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1346112, y: 2.27, z: 1.9153109}
-  m_Center: {x: -0.009457986, y: 1.06, z: -0.24423075}
---- !u!114 &11496544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6531421bd49bc4ba44e586502382a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerHeadTag: MainCamera
-  knob: {fileID: 463874}
-  controls:
-    openingSpeed: 1
-    closingSpeed: 1.3
-    closeStartFrom: 0.3
-    openMethod: 0
-    openButton: 101
-    autoClose: 0
-  AnimationNames:
-    OpeningAnim: DoorRoomsWide_open
-    LockedAnim: Door_locked
-  doorSounds:
-    enabled: 1
-    open: {fileID: 8300000, guid: 5d036f68d1afce346b68eaca16d6b6e8, type: 3}
-    close: {fileID: 8300000, guid: 9bce40df91dfe5c4d957ff0289db2ae4, type: 3}
-    closed: {fileID: 8300000, guid: 0cddfa79ad4fe064d8c71699bab862ac, type: 3}
-    volume: 1
-    pitchRandom: 0.2
-  doorTexts:
-    enabled: 1
-    openingText: Press [BUTTON] to open
-    closingText: Press [BUTTON] to close
-    lockText: You need a key!
-    TextPrefab: {fileID: 196946, guid: 449c88c761914d5428550f871a1d6272, type: 3}
-  keySystem:
-    enabled: 0
-    isUnlock: 0
-    LockPrefab: {fileID: 0}
+  m_Size: {x: 2.2262032, y: 2.27, z: 1.9153109}
+  m_Center: {x: 0.53633666, y: 1.06, z: -0.2442401}

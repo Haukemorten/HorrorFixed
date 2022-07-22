@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 455928}
   - component: {fileID: 6553104}
-  m_Layer: 0
+  - component: {fileID: 127876526}
+  - component: {fileID: 127876525}
+  m_Layer: 7
   m_Name: DoorNarrow_joint
-  m_TagString: Untagged
+  m_TagString: InteractiveObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +34,7 @@ Transform:
   - {fileID: 454404}
   m_Father: {fileID: 431468}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.7050068e-14, y: 90.642044, z: 9.6201595e-17}
 --- !u!65 &6553104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46,6 +48,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7674719, y: 2.05347, z: 0.04}
   m_Center: {x: 0.39194387, y: 1.0529176, z: 0.019999536}
+--- !u!95 &127876526
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a55581aefede8cf49966320d24ab0ea1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &127876525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3db9797d64a62b44ab46b0a88d78f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &129066
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,9 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 469986}
   - component: {fileID: 13717002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_narrow_mesh
-  m_TagString: Untagged
+  m_TagString: InteractiveObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,12 +174,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452676}
-  - component: {fileID: 11167090}
-  - component: {fileID: 6514204}
-  - component: {fileID: 11484436}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DoorRoom_narrow
-  m_TagString: Untagged
+  m_TagString: InteractiveObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,77 +197,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &11167090
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137146}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 1a45a0c1f88a33b4ead03f6289621777, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 1a45a0c1f88a33b4ead03f6289621777, type: 2}
-  - {fileID: 7400000, guid: ebea0857d85afaa4f9ce6a4b70aeef57, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 1
---- !u!65 &6514204
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137146}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.096736, y: 2.27, z: 1.8106244}
-  m_Center: {x: -0.059518464, y: 1.06, z: -0.28519762}
---- !u!114 &11484436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6531421bd49bc4ba44e586502382a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerHeadTag: MainCamera
-  knob: {fileID: 454404}
-  controls:
-    openingSpeed: 1
-    closingSpeed: 1.3
-    closeStartFrom: 0.3
-    openMethod: 0
-    openButton: 101
-    autoClose: 0
-  AnimationNames:
-    OpeningAnim: DoorRooms_open
-    LockedAnim: DoorRooms_locked
-  doorSounds:
-    enabled: 1
-    open: {fileID: 8300000, guid: 5d036f68d1afce346b68eaca16d6b6e8, type: 3}
-    close: {fileID: 8300000, guid: 9bce40df91dfe5c4d957ff0289db2ae4, type: 3}
-    closed: {fileID: 8300000, guid: 0cddfa79ad4fe064d8c71699bab862ac, type: 3}
-    volume: 1
-    pitchRandom: 0.2
-  doorTexts:
-    enabled: 1
-    openingText: Press [BUTTON] to open
-    closingText: Press [BUTTON] to close
-    lockText: 'You need a key! P.S.: try to look in the bedside table :)'
-    TextPrefab: {fileID: 196946, guid: 449c88c761914d5428550f871a1d6272, type: 3}
-  keySystem:
-    enabled: 0
-    isUnlock: 0
-    LockPrefab: {fileID: 0}
 --- !u!1 &140682
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,9 +206,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431468}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_narrow
-  m_TagString: Untagged
+  m_TagString: InteractiveObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 454404}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: doorKnob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 458704}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoorNarrow_handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
