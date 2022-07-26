@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SprintKey = KeyCode.LeftShift;
     public KeyCode CrouchKey = KeyCode.C;
+
+    [Header("StaminaBar")]
+    [SerializeField] private float Stamina;
+    private float StaminaCurrent;
     public enum MovementState
     {
         Walking,
@@ -100,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x, StartYScale, transform.localScale.z);// enlarge
         }
+         
 
 
     }
@@ -217,5 +223,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-
+    private void StaminaHandling() 
+    {
+    
+    }
 }
