@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 8292571055197561311}
   - component: {fileID: 8292571055197561308}
   - component: {fileID: 8292571055197561309}
-  - component: {fileID: 8292571055197561306}
+  - component: {fileID: 3105793376419916094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -324,6 +324,7 @@ MonoBehaviour:
   JumpKey: 0
   SprintKey: 304
   CrouchKey: 99
+  Stamina: 0
   maxSlopeAngle: 0
 --- !u!114 &8292571055197561309
 MonoBehaviour:
@@ -342,7 +343,7 @@ MonoBehaviour:
   freq: 12.4
   camera: {fileID: 8292571055422026645}
   cameraHolder: {fileID: 8292571054735435352}
---- !u!114 &8292571055197561306
+--- !u!114 &3105793376419916094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02b6bff11ed852479d5facdf0621080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlight: {fileID: 8292571055232474172}
+  flashlight: {fileID: 0}
   On: 0
 --- !u!1 &8292571055232474172
 GameObject:
