@@ -79014,9 +79014,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3105793376419916094, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
+      propertyPath: On
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105793376419916094, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
+      propertyPath: DrainRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105793376419916094, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
+      propertyPath: maxEnergy
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105793376419916094, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
       propertyPath: flashlight
       value: 
       objectReference: {fileID: 1521967115}
+    - target: {fileID: 3105793376419916094, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
+      propertyPath: currentEnergy
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 8292571053991941311, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -79096,6 +79112,18 @@ PrefabInstance:
     - target: {fileID: 8292571055197561308, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
       propertyPath: Playerheight
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292571055197561308, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
+      propertyPath: drainStamina
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292571055197561308, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
+      propertyPath: currentStamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292571055197561308, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
+      propertyPath: recoveryRateStamina
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8292571055232474172, guid: 3ade8d51d1318cc4597f166b10f5cddd, type: 3}
       propertyPath: m_Layer
