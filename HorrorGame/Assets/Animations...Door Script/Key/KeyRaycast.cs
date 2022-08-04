@@ -34,7 +34,7 @@ namespace KeySystem
                     }
                     isCrosshairActive = true;
                     doOnce = true;
-                    if (Input.GetKeyDown(openDoorKey))
+                    if (Input.GetKeyDown(openDoorKey)&& raycastedObject != null)
                     {
                         raycastedObject.ObjectInteractions();
                     }
