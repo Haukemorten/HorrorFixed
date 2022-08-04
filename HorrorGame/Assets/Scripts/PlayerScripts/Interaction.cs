@@ -15,8 +15,8 @@ public class Interaction : MonoBehaviour
     {
         Ray ray = new Ray (transform .position, transform.forward);
         RaycastHit hit;
-        bool hitsmth = Physics.Raycast(ray ,out hit ,3);
-        Debug.Log(hit.transform.name);
+        if (Physics.Raycast(ray ,out hit, 3)) { 
+        Debug.Log(hit.transform.name);}
     }
 }
     
