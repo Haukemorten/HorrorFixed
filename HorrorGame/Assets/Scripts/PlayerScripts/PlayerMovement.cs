@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float drainStamina;
     [SerializeField] private float recoveryRateStamina;
     [SerializeField] private float recoveryCDStamina = 25;
+    private bool recovering;
     
     
     public enum MovementState
@@ -81,7 +82,9 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput();
         DragHandler();
         SpeedLimiter();
-        StartCoroutine(StaminaHandling());
+        
+
+
         
     }
     private void FixedUpdate()
@@ -197,16 +200,19 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-        else if (grounded && Input.GetKey(SprintKey)&&currentStamina <0)
+        else if (grounded && Input.GetKey(SprintKey)&&currentStamina > 0)
         {
             State = MovementState.Sprinting;
             MovementSpeed = SprintSpeed;
             currentStamina -= drainStamina * Time.deltaTime;
+            recovering = false;
         }
         else if (grounded)
-        {
+        {   StartCoroutine(StaminaHandling());
             State = MovementState.Walking;
             MovementSpeed = WalkSpeed;
+            if (recovering == true&& currentStamina <= maxStamina)
+            currentStamina+= recoveryRateStamina *Time.deltaTime ;
 
         }
         else
@@ -233,11 +239,11 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator StaminaHandling() 
     {
-        if (currentStamina == 0) 
-        {
+        
+       
             yield return new WaitForSeconds(recoveryCDStamina);
-            currentStamina += recoveryRateStamina * Time.deltaTime;
-        }
+            recovering = true;
+        
     
     }
 }
