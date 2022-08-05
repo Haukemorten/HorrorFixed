@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Flashlight : MonoBehaviour
 {
     public GameObject flashlight;
     public bool On;
-    [SerializeField]  float DrainRate;
+    [SerializeField] float DrainRate;
     [SerializeField] float currentEnergy;
     [SerializeField] float maxEnergy;
     [SerializeField] float minEnergy = 0;
     public bool Drained;
+     
+  
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +40,9 @@ public class Flashlight : MonoBehaviour
         }
         if (On) 
         {
+            
             currentEnergy -= Time.deltaTime * DrainRate;
-        
+             
         }
 
         if (Input.GetKeyDown("f") & On == true)
