@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BatteryBehaviour : MonoBehaviour
 {
     [SerializeField] float DrainRate=15f;
+    [SerializeField] float Power;
     
     [SerializeField] Image BatteryUI;
     // Start is called before the first frame update
@@ -14,6 +15,13 @@ public class BatteryBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BatteryUI.fillAmount -= 1.0f / DrainRate * Time.deltaTime;
+        if (PlayerData.FlashlightOn == true) 
+        {
+            PlayerData.BatteryPower = Power; 
+            Power = BatteryUI.fillAmount;
+            BatteryUI.fillAmount -= 1.0f /  DrainRate * Time.deltaTime;
+           
+            
+        }
     }
 }

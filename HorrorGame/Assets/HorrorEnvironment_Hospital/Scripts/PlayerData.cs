@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-   private float [] posiion;
-
-   private int lvl;
+    public static float BatteryPower = 1000f;
+    public static bool FlashlightOn = false;
+    
    
 
-
-    public PlayerData(PlayerData player)
-    {
-     
-
-    
-    
-    }
+ 
 }
+ 

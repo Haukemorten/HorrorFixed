@@ -26,7 +26,7 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+      
         if (currentEnergy <= 0)
         {
             if (On) 
@@ -43,18 +43,27 @@ public class Flashlight : MonoBehaviour
             
             currentEnergy -= Time.deltaTime * DrainRate;
              
+             
         }
-
-        if (Input.GetKeyDown("f") & On == true)
+        if (PlayerData.BatteryPower > 0.0f) 
+        { 
+        if (Input.GetKeyDown("f") & On == true )
         {
             StartCoroutine(TurnOff());
+           
         }
 
         if (Input.GetKeyDown("f") & On == false)
         {
             flashlight.SetActive(true);
 
-            On = true;
+            On = true; PlayerData.FlashlightOn = true;
+        } if(PlayerData.BatteryPower <= 0.0f) 
+            {
+                StartCoroutine(TurnOff());
+               
+            }  
+            
         }
     }
 
