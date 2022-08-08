@@ -54,7 +54,7 @@ public class PlayerCamera : MonoBehaviour
         //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 90, FoVGrowth * Time.deltaTime);
         if (player.State == PlayerMovement.MovementState.Sprinting)
         {
-            cam.fieldOfView = Mathf.SmoothStep(cam.fieldOfView, 90, FoVGrowth * Time.deltaTime);
+            cam.fieldOfView = Mathf.SmoothStep(cam.fieldOfView, 80, FoVGrowth * Time.deltaTime);
         }
         else
         {

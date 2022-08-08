@@ -43,9 +43,15 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode SprintKey = KeyCode.LeftShift;
     public KeyCode CrouchKey = KeyCode.C;
 
-    [Header("StaminaBar")]
-    [SerializeField] private float Stamina;
-    private float StaminaCurrent;
+    [Header("Stamina")]
+    [SerializeField] private float currentStamina;
+    [SerializeField] private float maxStamina = 100;
+    [SerializeField] private float drainStamina;
+    [SerializeField] private float recoveryRateStamina;
+    [SerializeField] private float recoveryCDStamina = 25;
+    private bool recovering;
+    
+    
     public enum MovementState
     {
         Walking,
@@ -76,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput();
         DragHandler();
         SpeedLimiter();
+        
+
+
+        
     }
     private void FixedUpdate()
     {
@@ -190,15 +200,19 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-        else if (grounded && Input.GetKey(SprintKey))
+        else if (grounded && Input.GetKey(SprintKey)&&currentStamina > 0)
         {
             State = MovementState.Sprinting;
             MovementSpeed = SprintSpeed;
+            currentStamina -= drainStamina * Time.deltaTime;
+            recovering = false;
         }
         else if (grounded)
-        {
+        {   StartCoroutine(StaminaHandling());
             State = MovementState.Walking;
             MovementSpeed = WalkSpeed;
+            if (recovering == true&& currentStamina <= maxStamina)
+            currentStamina+= recoveryRateStamina *Time.deltaTime ;
 
         }
         else
@@ -223,8 +237,13 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-    private void StaminaHandling() 
+    IEnumerator StaminaHandling() 
     {
+        
+       
+            yield return new WaitForSeconds(recoveryCDStamina);
+            recovering = true;
+        
     
     }
 }
