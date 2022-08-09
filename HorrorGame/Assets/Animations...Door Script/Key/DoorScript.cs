@@ -17,35 +17,41 @@ public class DoorScript : MonoBehaviour
     private const string interactebleTag = "InteractiveObject";
     private void Update()
     {
-        RaycastHit hit;
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        
-        if(Physics.Raycast(transform.position, fwd, out hit, rayLenght,layerMask))
+        if (Input.GetKeyDown(openDoorKey))
         {
-            if(hit.collider.CompareTag(interactebleTag))
-            {
-                if(!doOnce)
-                {
-                    doorObj = hit.collider.gameObject.GetComponent<DoorController>();
-                  //  CrosshairChange(true);
-                }
-                isCrosshairActive = true;
-                doOnce = true;
-                if(Input.GetKeyDown(openDoorKey))
-                {
-                    doorObj.PlayAnimation();
-                }
-            }
-        }
-        else
-        {
-            if(isCrosshairActive)
-            {
-               // CrosshairChange(false);
-                doOnce = false;
+            RaycastHit hit;
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
+            if (Physics.Raycast(transform.position, fwd, out hit, rayLenght, layerMask))
+            {
+
+                if (hit.collider.CompareTag(interactebleTag))
+                {
+                    if (!doOnce)
+                    {
+
+                        doorObj = hit.collider.gameObject.GetComponent<DoorController>();
+                        //  CrosshairChange(true);
+                    }
+                    isCrosshairActive = true;
+                    doOnce = true;
+
+                    if (doorObj != null)
+                        doorObj.PlayAnimation();
+
+                }
+            }
+            else
+            {
+                if (isCrosshairActive)
+                {
+                    // CrosshairChange(false);
+                    doOnce = false;
+
+                }
             }
         }
+        
     }
     void CrosshairChange(bool on)
     {
