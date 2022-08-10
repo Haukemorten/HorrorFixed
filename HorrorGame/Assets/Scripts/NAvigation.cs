@@ -9,8 +9,12 @@ public class NAvigation : MonoBehaviour
      private Transform currentTarget;
      private float DistanceToTarget;
      private int targetNumber = 1;
+     private bool Randomizer = true;
+     private int NextTargetNumber;
+    private bool Waiting = false;
 
     [SerializeField] float stopDistance = 2.0f;
+    [SerializeField] float WaitTime = 2.0f;
     [SerializeField] Transform target1;
     [SerializeField] Transform target2;
     [SerializeField] Transform target3;
@@ -34,14 +38,12 @@ public class NAvigation : MonoBehaviour
         if(DistanceToTarget > stopDistance) 
         {
             agent.SetDestination(currentTarget.position);
+            NextTargetNumber = targetNumber;
         }
         if (DistanceToTarget < stopDistance)
-        {
-            targetNumber++;
-            if(targetNumber > MaxTargets)
-            {
-                targetNumber = 1;
-            }
+        {   StartCoroutine(LookAround());
+             
+             
             SetTarget();
         }
     }
@@ -79,5 +81,39 @@ public class NAvigation : MonoBehaviour
         {
             currentTarget = target8;
         }
+        
     }
+    IEnumerator LookAround() 
+        {
+            yield return new WaitForSeconds(WaitTime);
+            if (Waiting == false) 
+            {
+
+                Waiting = true;
+                targetNumber++;
+                if ( Randomizer == true)
+                {
+                 Randomizer = false;
+                 targetNumber = Random.Range(1,MaxTargets);
+
+                 if (targetNumber == NextTargetNumber) 
+                 {
+                    targetNumber++;
+                    if (targetNumber >= MaxTargets)
+                    {
+                        targetNumber = 1;
+                    }
+                 }
+                
+                }
+                SetTarget();
+
+                yield return new WaitForSeconds(WaitTime);
+                Waiting = false;
+                Randomizer = true;
+            }
+        
+
+
+        }
 }
