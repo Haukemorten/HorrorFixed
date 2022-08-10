@@ -46,11 +46,13 @@ public class EnemyAttack : MonoBehaviour
                 {
                     Debug.Log("Can see the player ");
                     runToPlayer = true;
+                    failedChecks = 0;
                 }
                 if(blocked == true) 
                 {
                     Debug.Log("I am blind");
                     runToPlayer = false;
+                    failedChecks++;
                 }
 
                 StartCoroutine(TimeChecked());
@@ -59,13 +61,38 @@ public class EnemyAttack : MonoBehaviour
 
         if (runToPlayer == true) 
         {
-            Enemy.GetComponent<EnemyMovement>().enabled = false;
+            Enemy.GetComponent<EMovement>().enabled = false;
             if (distanceToPlayer > AttackDistance) 
-            {
+            {    
                 agent.isStopped = false;
+                agent.acceleration = 8;
+                agent.SetDestination(Player.position);
+                agent.speed = ChaseSpeed;
 
             
             }
+            if (distanceToPlayer < AttackDistance)
+            {   
+
+                agent.isStopped = true;
+                Debug.Log("Commencing attack");
+                
+                agent.acceleration = 180;               
+                
+            }
+        }
+        else if (runToPlayer == false) 
+        {
+            Enemy.GetComponent<EMovement>().enabled = true;
+            agent.isStopped = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player")) 
+        {
+            runToPlayer = true;
         }
     }
 
@@ -74,6 +101,16 @@ public class EnemyAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(CheckTime);
         checking = true;
+
+        if (failedChecks > MaxChecks) 
+        {
+            Enemy.GetComponent<EMovement>().enabled = true;
+            agent.isStopped = false;
+            agent.speed = WalkSpeed;
+            failedChecks = 0;
+
+        
+        }
 
 
     }
