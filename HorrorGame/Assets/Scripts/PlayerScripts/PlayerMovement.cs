@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void GroundCheck()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, Playerheight * 0.5f + 0.2f, ground);
+        grounded = Physics.Raycast(transform.position, Vector3.down, Playerheight * 1.5f + 0.2f, ground);
     }
     private void DragHandler()
     {
