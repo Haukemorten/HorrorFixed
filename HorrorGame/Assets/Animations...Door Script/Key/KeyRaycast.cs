@@ -16,7 +16,7 @@ namespace KeySystem
         [SerializeField] private Image Crosshair = null;
         private bool isCrosshairActive;
         private bool doOnce;
-        private string interactebleObject = "InteractiveObject";
+        private string interactebleObject = "Key";
 
         private void Update()
         {

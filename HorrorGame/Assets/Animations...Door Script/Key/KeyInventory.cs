@@ -11,5 +11,6 @@ namespace KeySystem
         public bool hasRedKey = false;
         public bool hasBlackKey = false;
         public bool hasBlueKey = false;
+        public bool hasGreenKey = false;
     }
 }

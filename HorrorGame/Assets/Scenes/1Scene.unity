@@ -14027,9 +14027,11 @@ MonoBehaviour:
   BlackDoor: 1
   RedDoor: 0
   BlueDoor: 0
+  GreenDoor: 0
   BlackKey: 0
   RedKey: 0
   BlueKey: 0
+  GreenKey: 0
   _keyInventory: {fileID: 918140215}
 --- !u!114 &644682381
 MonoBehaviour:
@@ -19327,6 +19329,7 @@ MonoBehaviour:
   hasRedKey: 0
   hasBlackKey: 0
   hasBlueKey: 0
+  hasGreenKey: 0
 --- !u!4 &918140216
 Transform:
   m_ObjectHideFlags: 0
@@ -36067,6 +36070,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 188418420}
     m_Modifications:
+    - target: {fileID: 115476, guid: f38c661e1ca78ab409eda72d74c6e797, type: 3}
+      propertyPath: m_TagString
+      value: Key
+      objectReference: {fileID: 0}
     - target: {fileID: 183562, guid: f38c661e1ca78ab409eda72d74c6e797, type: 3}
       propertyPath: m_Name
       value: DoorRoom_wide 4
