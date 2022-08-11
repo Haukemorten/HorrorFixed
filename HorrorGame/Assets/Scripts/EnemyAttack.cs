@@ -61,7 +61,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (runToPlayer == true) 
         {
-            Enemy.GetComponent<EMovement>().enabled = false;
+            //Enemy.GetComponent<EMovement>().enabled = false;
             if (distanceToPlayer > AttackDistance) 
             {    
                 agent.isStopped = false;
@@ -83,7 +83,7 @@ public class EnemyAttack : MonoBehaviour
         }
         else if (runToPlayer == false) 
         {
-            Enemy.GetComponent<EMovement>().enabled = true;
+            //Enemy.GetComponent<EMovement>().enabled = true;
             agent.isStopped = true;
         }
     }
@@ -104,7 +104,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (failedChecks > MaxChecks) 
         {
-            Enemy.GetComponent<EMovement>().enabled = true;
+            //Enemy.GetComponent<EMovement>().enabled = true;
             agent.isStopped = false;
             agent.speed = WalkSpeed;
             failedChecks = 0;

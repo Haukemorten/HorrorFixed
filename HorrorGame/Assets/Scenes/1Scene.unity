@@ -11699,7 +11699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &541489020
 Light:
   m_ObjectHideFlags: 0
@@ -36074,9 +36074,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Key
       objectReference: {fileID: 0}
+    - target: {fileID: 136384, guid: f38c661e1ca78ab409eda72d74c6e797, type: 3}
+      propertyPath: m_TagString
+      value: Key
+      objectReference: {fileID: 0}
     - target: {fileID: 183562, guid: f38c661e1ca78ab409eda72d74c6e797, type: 3}
       propertyPath: m_Name
       value: DoorRoom_wide 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 183562, guid: f38c661e1ca78ab409eda72d74c6e797, type: 3}
+      propertyPath: m_TagString
+      value: Key
       objectReference: {fileID: 0}
     - target: {fileID: 481148, guid: f38c661e1ca78ab409eda72d74c6e797, type: 3}
       propertyPath: m_RootOrder
@@ -38636,7 +38644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6586380701880126115, guid: 9295189b4f03b8a47b9873a8492069d1, type: 3}
       propertyPath: m_TagString
-      value: InteractiveObject
+      value: Key
       objectReference: {fileID: 0}
     - target: {fileID: 7863301623646972091, guid: 9295189b4f03b8a47b9873a8492069d1, type: 3}
       propertyPath: m_RootOrder
