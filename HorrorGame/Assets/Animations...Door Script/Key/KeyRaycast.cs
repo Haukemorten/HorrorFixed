@@ -20,6 +20,7 @@ namespace KeySystem
 
         private void Update()
         {
+             
             RaycastHit hit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             
@@ -39,6 +40,7 @@ namespace KeySystem
                         raycastedObject.ObjectInteractions();
                     }
                 }
+                 
             }
             else
             {
@@ -63,5 +65,7 @@ namespace KeySystem
                 isCrosshairActive = false;
             }
         }
+
+ 
     }
 }

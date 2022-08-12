@@ -13,6 +13,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] float maxEnergy;
     [SerializeField] float minEnergy = 0;
     public bool Drained;
+    
      
   
 
@@ -29,9 +30,15 @@ public class Flashlight : MonoBehaviour
       
         if (currentEnergy <= 0)
         {
-            if (On) 
+             
+            if (PlayerData.Batterycount <=0 && On) 
             {
                 StartCoroutine(TurnOff()); 
+            }
+            else if   (PlayerData.Batterycount >=0 && On)
+            {
+                currentEnergy += 50;
+                PlayerData.Batterycount--;
             }
             return;   
         
