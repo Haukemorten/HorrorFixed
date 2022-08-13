@@ -12,6 +12,7 @@ public class EnemyAttack : MonoBehaviour
     private float distanceToPlayer;
     private bool checking = true;
     private int failedChecks = 0;
+    private bool reached;
     
 
     [SerializeField] Transform Player;
@@ -20,7 +21,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] int MaxChecks = 3;
     [SerializeField] float ChaseSpeed = 8.5f;
     [SerializeField] float WalkSpeed = 1.6f;
-    [SerializeField] float AttackDistance = 2.3f;
+    [SerializeField] float AttackDistance = 15.5f;
     [SerializeField] float RotationSpeed = 1.0f;
     [SerializeField] float CheckTime = 3.0f;
     
@@ -76,8 +77,9 @@ public class EnemyAttack : MonoBehaviour
 
                 agent.isStopped = true;
                 Debug.Log("Commencing attack");
-                
-                agent.acceleration = 180;               
+                reached = true;
+                agent.acceleration = 180;
+                PlayerData.Health = 0;
                 
             }
         }
@@ -86,6 +88,7 @@ public class EnemyAttack : MonoBehaviour
             //Enemy.GetComponent<EMovement>().enabled = true;
             agent.isStopped = true;
         }
+         
     }
 
     private void OnTriggerEnter(Collider other)

@@ -13,7 +13,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] float maxEnergy;
     [SerializeField] float minEnergy = 0;
     [SerializeField] float distance = 4;
-    
+    private bool enemyHit = false;
     public bool Drained;
      
      
@@ -85,9 +85,24 @@ public class Flashlight : MonoBehaviour
         
          
         }
-
+        
 
     }
+    private void OnTrigger(Collider other)
+    {
+        if(On == true) { 
+        EnemyAttack.FindObjectOfType<EnemyAttack>().enabled = false;
+        enemyHit = true;
+        Debug.Log("EnemyHit");}
+    }
+    private void OnTriggerExit(Collider other)
+    {
+
+        EnemyAttack.FindObjectOfType<EnemyAttack>().enabled = true;
+        Debug.Log("Walking");
+
+    }
+
 
     IEnumerator TurnOff()
     {
