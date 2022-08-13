@@ -9,6 +9,7 @@ TagManager:
   - Key
   - Battery
   - Enemy
+  - DetectionZone
   layers:
   - Default
   - TransparentFX

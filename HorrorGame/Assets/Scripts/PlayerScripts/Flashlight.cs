@@ -12,7 +12,14 @@ public class Flashlight : MonoBehaviour
     [SerializeField] float currentEnergy;
     [SerializeField] float maxEnergy;
     [SerializeField] float minEnergy = 0;
+    [SerializeField] float distance = 4;
+    
     public bool Drained;
+     
+     
+
+   
+     
     
      
     
@@ -24,7 +31,7 @@ public class Flashlight : MonoBehaviour
     {
 
         flashlight.SetActive(false);
-        Ray ray = GetComponent<Ray>();
+         
     }
 
     // Update is called once per frame
@@ -38,10 +45,11 @@ public class Flashlight : MonoBehaviour
             {
                 StartCoroutine(TurnOff()); 
             }
-            else if   (PlayerData.Batterycount >=0 && On)
+            if (Input.GetKeyDown("r")&&PlayerData.Batterycount>=0) 
             {
-                currentEnergy += 50;
+                currentEnergy =maxEnergy ;
                 PlayerData.Batterycount--;
+                Debug.Log("Reloaded");
             }
             return;   
         
@@ -74,7 +82,11 @@ public class Flashlight : MonoBehaviour
                
             }  
             
+        
+         
         }
+
+
     }
 
     IEnumerator TurnOff()

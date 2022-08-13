@@ -7,11 +7,11 @@ public class BatteryBehaviour : MonoBehaviour
 {
     
      RaycastHit hit ;
-    [SerializeField] float distance = 4f;
+     [SerializeField] float distance = 4f;
     //[SerializeField] GameObject PickupMassage;
 
-    private float RayDistance;
-    private bool CanSeeBattery = false;
+     private float RayDistance;
+     private bool CanSeeBattery = false;
      
 
 
@@ -45,11 +45,11 @@ public class BatteryBehaviour : MonoBehaviour
         {
             //PickupMassage.gameObject.SetActive(true);
             RayDistance = 1000f;
-            Debug.Log("can see battery");
+          
             if (Input.GetMouseButtonDown(0)) 
             {
                 Destroy(hit.transform.gameObject);
-                PlayerData.Batterycount+=1;a
+                PlayerData.Batterycount+=1; 
             
             }
         
@@ -58,7 +58,7 @@ public class BatteryBehaviour : MonoBehaviour
         {
             //PickupMassage.gameObject.SetActive(false);
             RayDistance = distance;
-            Debug.Log("cant see battery");
+            
         }
 
 
