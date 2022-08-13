@@ -15,6 +15,8 @@ public class Flashlight : MonoBehaviour
     public bool Drained;
     
      
+    
+     
   
 
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class Flashlight : MonoBehaviour
     {
 
         flashlight.SetActive(false);
+        Ray ray = GetComponent<Ray>();
     }
 
     // Update is called once per frame

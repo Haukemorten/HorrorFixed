@@ -6,7 +6,7 @@ public class PlayerData : MonoBehaviour
 {
     public static float BatteryPower = 1000f;
     public static bool FlashlightOn = false;
-    public static float Batterycount = 1f;
+    public static int Batterycount = 0;
     public static bool pickedup = false;
    
 

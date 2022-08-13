@@ -6,34 +6,61 @@ using UnityEngine.UI;
 public class BatteryBehaviour : MonoBehaviour
 {
     
-    [SerializeField] private int rayLenght = 5;
-    [SerializeField] private LayerMask layerMaskInteract;
-    [SerializeField] private string excludeLayerName = null;
-    [SerializeField] private KeyCode PickUp = KeyCode.Mouse0;
-    private string interactableObject= "Battery";
-    
+     RaycastHit hit ;
+    [SerializeField] float distance = 4f;
+    //[SerializeField] GameObject PickupMassage;
+
+    private float RayDistance;
+    private bool CanSeeBattery = false;
      
 
-    
+
+
+
     // Start is called before the first frame update
-     
+    private void Start()
+    {
+         //PickupMassage.gameObject.SetActive(false);
+         RayDistance = distance;
+         
+    }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        Vector3 look = transform.TransformDirection(Vector3.forward);
-        if (Physics.Raycast(transform.position, look, out hit, rayLenght)) 
+        if (Physics.Raycast(transform.position, transform.forward,out hit,RayDistance)) 
         {
-             hit.collider.CompareTag(interactableObject);
-             PlayerData.Batterycount++;
-             PlayerData.pickedup = true;
-             
+            if (hit.transform.tag == "Battery") 
+            {
+                CanSeeBattery = true;          
+            
+            }
+            else 
+            {
+                CanSeeBattery = false;
+            }
         
         }
-
+        if (CanSeeBattery == true) 
+        {
+            //PickupMassage.gameObject.SetActive(true);
+            RayDistance = 1000f;
+            Debug.Log("can see battery");
+            if (Input.GetMouseButtonDown(0)) 
+            {
+                Destroy(hit.transform.gameObject);
+                PlayerData.Batterycount+=1;a
             
-            
+            }
         
+        }
+        if (CanSeeBattery == false)
+        {
+            //PickupMassage.gameObject.SetActive(false);
+            RayDistance = distance;
+            Debug.Log("cant see battery");
+        }
+
+
     }
 }
