@@ -15,23 +15,25 @@ public class Flashlight : MonoBehaviour
     [SerializeField] float distance = 4;
     private bool enemyHit = false;
     public bool Drained;
-     
-     
+    RaycastHit hit;
+    private float RaycastDistance;
 
-   
-     
-    
-     
-    
-     
-  
+
+
+
+
+
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
 
         flashlight.SetActive(false);
-         
+        distance = RaycastDistance;
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class Flashlight : MonoBehaviour
             if (PlayerData.Batterycount <=0 && On) 
             {
                 StartCoroutine(TurnOff()); 
+                enemyHit = false;
             }
             if (Input.GetKeyDown("r")&&PlayerData.Batterycount>=0) 
             {
@@ -58,7 +61,14 @@ public class Flashlight : MonoBehaviour
         }
         if (On) 
         {
+            Physics.Raycast(transform.position, transform.forward, out hit, RaycastDistance);
+            if (hit.transform.tag == "Enemy") 
+            {
+                enemyHit = true;            
+                hit.transform.gameObject.SetActive(false);
             
+            
+            }
             currentEnergy -= Time.deltaTime * DrainRate;
              
              
@@ -88,20 +98,20 @@ public class Flashlight : MonoBehaviour
         
 
     }
-    private void OnTrigger(Collider other)
-    {
-        if(On == true) { 
-        EnemyAttack.FindObjectOfType<EnemyAttack>().enabled = false;
-        enemyHit = true;
-        Debug.Log("EnemyHit");}
-    }
-    private void OnTriggerExit(Collider other)
-    {
+    //private void OnTrigger(Collider other)
+    //{
+    //    if(On == true) { 
+    //    EnemyAttack.FindObjectOfType<EnemyAttack>().enabled = false;
+    //    enemyHit = true;
+    //    Debug.Log("EnemyHit");}
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
 
-        EnemyAttack.FindObjectOfType<EnemyAttack>().enabled = true;
-        Debug.Log("Walking");
+    //    EnemyAttack.FindObjectOfType<EnemyAttack>().enabled = true;
+    //    Debug.Log("Walking");
 
-    }
+    //}
 
 
     IEnumerator TurnOff()

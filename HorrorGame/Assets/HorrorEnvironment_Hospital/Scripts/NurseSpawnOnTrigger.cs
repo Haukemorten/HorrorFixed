@@ -7,7 +7,9 @@ public class NurseSpawnOnTrigger : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Transform Spawnpoint;
     [SerializeField] GameObject Prefab;
-    [SerializeField] GameObject DeSpawnPoint;
+    GameObject clone;
+    [SerializeField] float DespawnTimer;
+     
     private bool Spawned = false;
 
     
@@ -21,13 +23,21 @@ public class NurseSpawnOnTrigger : MonoBehaviour
     {
         if(Spawned == false) 
         { 
-        Instantiate (Prefab,Spawnpoint.position,Spawnpoint.rotation);
-        spawnCount++;
-            Destroy(Prefab,10);
+       clone = Instantiate (Prefab,Spawnpoint.position,Spawnpoint.rotation);
+             
+            spawnCount++;
+            StartCoroutine(Destroyer());
         Spawned = true;
         }
         
     }
-     
+     IEnumerator Destroyer() 
+    
+    {
+        yield return new WaitForSeconds (DespawnTimer);
+        Destroy(clone);
+    
+    
+    }
 
 }
