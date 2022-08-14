@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class Flashlight : MonoBehaviour
 {
     public GameObject flashlight;
-    public bool On;
+    public static bool On;
     [SerializeField] float DrainRate;
     [SerializeField] float currentEnergy;
     [SerializeField] float maxEnergy;
     [SerializeField] float minEnergy = 0;
     [SerializeField] float distance = 4;
-    private bool enemyHit = false;
+    [SerializeField] LayerMask layerMaskEnemy;
     public bool Drained;
     RaycastHit hit;
     private float RaycastDistance;
@@ -33,7 +33,7 @@ public class Flashlight : MonoBehaviour
     {
 
         flashlight.SetActive(false);
-        distance = RaycastDistance;
+        RaycastDistance=distance  ;
     }
 
     // Update is called once per frame
@@ -43,10 +43,10 @@ public class Flashlight : MonoBehaviour
         if (currentEnergy <= 0)
         {
              
-            if (PlayerData.Batterycount <=0 && On) 
+            if (PlayerData.Batterycount <=0 && On||On) 
             {
                 StartCoroutine(TurnOff()); 
-                enemyHit = false;
+                
             }
             if (Input.GetKeyDown("r")&&PlayerData.Batterycount>=0) 
             {
@@ -61,15 +61,16 @@ public class Flashlight : MonoBehaviour
         }
         if (On) 
         {
-            Physics.Raycast(transform.position, transform.forward, out hit, RaycastDistance);
+           if( Physics.Raycast(transform.position, transform.forward, out hit, RaycastDistance )) { 
             if (hit.transform.tag == "Enemy") 
             {
-                enemyHit = true;            
-                hit.transform.gameObject.SetActive(false);
+               PlayerData.enemyHit = true;
+                    Debug.Log("hit");
+                    
             
             
             }
-            currentEnergy -= Time.deltaTime * DrainRate;
+            currentEnergy -= Time.deltaTime * DrainRate;}
              
              
         }
@@ -120,5 +121,6 @@ public class Flashlight : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         flashlight.SetActive(false);
         On = false;
+        PlayerData.enemyHit = false;
     }
 }

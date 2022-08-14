@@ -43,13 +43,17 @@ public class EnemyAttack : MonoBehaviour
 
                 blocked = NavMesh.Raycast(transform.position, Player.position, out hit, NavMesh.AllAreas);
 
+                while (PlayerData.enemyHit == false)  
+                {
+                    agent.isStopped = true;
+                }
                 if (blocked == false) 
                 {
                     Debug.Log("Can see the player ");
                     runToPlayer = true;
                     failedChecks = 0;
                 }
-                if(blocked == true) 
+                if(blocked == true||PlayerData.enemyHit == true) 
                 {
                     Debug.Log("I am blind");
                     runToPlayer = false;
@@ -60,19 +64,19 @@ public class EnemyAttack : MonoBehaviour
             }
         }
 
-        if (runToPlayer == true) 
+        if (runToPlayer == true  ) 
         {
             //Enemy.GetComponent<EMovement>().enabled = false;
             if (distanceToPlayer > AttackDistance) 
             {    
-                agent.isStopped = false;
+                agent.isStopped = false; 
                 agent.acceleration = 8;
                 agent.SetDestination(Player.position);
                 agent.speed = ChaseSpeed;
 
             
             }
-            if (distanceToPlayer < AttackDistance)
+            if (distanceToPlayer < AttackDistance )
             {   
 
                 agent.isStopped = true;
@@ -88,6 +92,8 @@ public class EnemyAttack : MonoBehaviour
             //Enemy.GetComponent<EMovement>().enabled = true;
             agent.isStopped = true;
         }
+        
+         
          
     }
 

@@ -10,7 +10,7 @@ public class PlayerData : MonoBehaviour
     public static int Batterycount = 0;
     public static bool pickedup = false;
     public static float Health = 1;
-    
+    public static bool  enemyHit=false;
    
 
  
