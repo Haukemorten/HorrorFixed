@@ -6,9 +6,13 @@ public class DoorController : MonoBehaviour
 {
     private Animator anim;
     private bool doorOpen = false;
+    
+    
     private void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
+          
+        
     }
     public void PlayAnimation()
     {
@@ -21,6 +25,8 @@ public class DoorController : MonoBehaviour
         {
             anim.Play("DoorClose", 0, 0.0f);
             doorOpen = false;
+            
+            
         }
     }
 }
