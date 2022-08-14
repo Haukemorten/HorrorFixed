@@ -7,6 +7,12 @@ public class DoorController : MonoBehaviour
     private Animator anim;
     private bool doorOpen = false;
     
+    [Header("Audio")]
+    [SerializeField] AudioSource doorCloseAudio = null;
+    [SerializeField] AudioSource doorOpenAudio = null;
+    private float closedelayed = 0.6f; 
+    private float opendelayed = 0f;
+    
     
     private void Awake()
     {
@@ -20,11 +26,14 @@ public class DoorController : MonoBehaviour
         {
             anim.Play("DoorOpen", 0, 0.0f);
             doorOpen = true;
+            doorOpenAudio.PlayDelayed(opendelayed);
+            
         }
         else
         {
             anim.Play("DoorClose", 0, 0.0f);
             doorOpen = false;
+            doorCloseAudio.PlayDelayed(closedelayed);
             
             
         }
