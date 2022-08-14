@@ -14,6 +14,13 @@ namespace KeySystem
         [SerializeField] private KeyInventory _keyInventory = null;
         [SerializeField] private int waitTimer = 1;
         [SerializeField] private bool pauseInteraction = false;
+
+        [Header("Audio")]
+        [SerializeField] AudioSource doorCloseAudio;
+        [SerializeField] AudioSource doorOpenAudio;
+        [SerializeField] AudioSource doorIsLockedAudio;
+        private float openDelayed = 0f;
+        private float closeDelayed = 0.6f;
         
         private void Awake()
         {
@@ -35,6 +42,7 @@ namespace KeySystem
             else
             {
                 StartCoroutine(ShowDoorLocked());
+                doorIsLockedAudio.PlayDelayed(openDelayed);
             }
             
 
@@ -52,12 +60,14 @@ namespace KeySystem
                 anim.Play("DoorOpen", 0, 0.0f);
                 doorOpen = true;
                 StartCoroutine(PauseDoorInteraction());
+                doorOpenAudio.PlayDelayed(openDelayed);
             }
             else if (doorOpen && !pauseInteraction)
             {
                 anim.Play("DoorClose", 0, 0.0f);
                 doorOpen = false;
                 StartCoroutine(PauseDoorInteraction());
+                doorCloseAudio.PlayDelayed(closeDelayed);   
             }
         }
     }
