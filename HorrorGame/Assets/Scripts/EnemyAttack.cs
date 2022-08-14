@@ -24,7 +24,11 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] float AttackDistance = 15.5f;
     [SerializeField] float RotationSpeed = 1.0f;
     [SerializeField] float CheckTime = 3.0f;
-    
+
+    [Header("Audio")]
+    [SerializeField] AudioSource sheSeeYouAudio;
+    private float seYouDelay = 0f;
+    private bool playOnce = false;  
 
     void Start()
     {
@@ -60,12 +64,14 @@ public class EnemyAttack : MonoBehaviour
                     Debug.Log("Can see the player ");
                     runToPlayer = true;
                     failedChecks = 0;
+                    sheSeeYouAudio.PlayDelayed(seYouDelay);
                 }
                 if(blocked == true||PlayerData.enemyHit == true) 
                 {
                     Debug.Log("I am blind");
                     runToPlayer = false;
                     failedChecks++;
+                    
                 }
 
                 StartCoroutine(TimeChecked());
@@ -99,6 +105,7 @@ public class EnemyAttack : MonoBehaviour
         {
             //Enemy.GetComponent<EMovement>().enabled = true;
             agent.isStopped = true;
+            sheSeeYouAudio.Stop();
         }
         
          
@@ -110,7 +117,10 @@ public class EnemyAttack : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) 
         {
             runToPlayer = true;
+            
         }
+        
+        
     }
 
 
