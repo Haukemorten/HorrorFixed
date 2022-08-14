@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[System.Serializable]
 
-public class GameDAta : MonoBehaviour
+public class GameDAta  
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public   float BatteryPower = 100f;
 
-    // Update is called once per frame
-    void Update()
+    public   int Batterycount = 0;
+
+    public float Health ;
+    public   bool enemyHit ;
+    public  bool FlashlightOn  ;
+    public  bool pickedup  ;
+    public   bool Newgame  ;
+    public  bool Loadedgame  ;
+
+    public GameDAta() 
     {
-        
-    }
+         this.BatteryPower = 100f;
+
+         this.Batterycount = 0;
+
+          this.Health= 1;
+        this.enemyHit = false;
+     
+
+     }
+
+
+
+
 }
