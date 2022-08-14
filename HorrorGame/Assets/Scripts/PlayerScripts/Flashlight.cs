@@ -59,18 +59,19 @@ public class Flashlight : MonoBehaviour
             
         
         }
-        if (On) 
+        if (On)
         {
-           if( Physics.Raycast(transform.position, transform.forward, out hit, RaycastDistance )) { 
-            if (hit.transform.tag == "Enemy") 
-            {
+            
+            
+            { 
                PlayerData.enemyHit = true;
-                    Debug.Log("hit");
+            Debug.Log("hit");
                     
             
-            
             }
-            currentEnergy -= Time.deltaTime * DrainRate;}
+            
+            currentEnergy -= Time.deltaTime * DrainRate;
+        
              
              
         }

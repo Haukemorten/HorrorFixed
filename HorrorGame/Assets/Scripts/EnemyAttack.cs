@@ -34,6 +34,7 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerData.enemyHit == true ) { agent.speed = 0;Debug.Log("speeddown"); } 
         distanceToPlayer = Vector3.Distance(Player.position, Enemy.transform.position);
         if ( distanceToPlayer < MaxRange) 
         {
@@ -43,10 +44,7 @@ public class EnemyAttack : MonoBehaviour
 
                 blocked = NavMesh.Raycast(transform.position, Player.position, out hit, NavMesh.AllAreas);
 
-                while (PlayerData.enemyHit == false)  
-                {
-                    agent.isStopped = true;
-                }
+                 
                 if (blocked == false) 
                 {
                     Debug.Log("Can see the player ");
