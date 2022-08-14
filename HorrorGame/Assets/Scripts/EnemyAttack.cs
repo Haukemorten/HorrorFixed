@@ -34,7 +34,17 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerData.enemyHit == true ) { agent.speed = 0;Debug.Log("speeddown"); } 
+        if (PlayerData.enemyHit == true)
+        {
+            if (Flashlight.On == true)
+            {
+                agent.speed = 0;
+                agent.velocity = Vector3.zero;  
+                
+                Debug.Log("speeddown");
+            }
+        }
+            
         distanceToPlayer = Vector3.Distance(Player.position, Enemy.transform.position);
         if ( distanceToPlayer < MaxRange) 
         {
@@ -95,7 +105,7 @@ public class EnemyAttack : MonoBehaviour
          
     }
 
-    private void OnTriggerEnter(Collider other)
+      void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player")) 
         {

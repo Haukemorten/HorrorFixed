@@ -62,7 +62,7 @@ public class Flashlight : MonoBehaviour
         if (On)
         {
             
-            
+            s
             { 
                PlayerData.enemyHit = true;
             Debug.Log("hit");
