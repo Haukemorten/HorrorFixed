@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Flashlight : MonoBehaviour
+public class Flashlight : MonoBehaviour 
 {
     public GameObject flashlight;
     public static bool On;
@@ -22,9 +22,7 @@ public class Flashlight : MonoBehaviour
 
 
 
-
-
-
+ 
 
 
 

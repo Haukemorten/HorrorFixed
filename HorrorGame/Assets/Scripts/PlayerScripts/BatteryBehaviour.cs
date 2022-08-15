@@ -33,7 +33,7 @@ public class BatteryBehaviour : MonoBehaviour
             if (hit.transform.tag == "Battery") 
             {
                 CanSeeBattery = true;          
-            
+                        
             }
             else 
             {

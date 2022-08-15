@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour ,  IDAtaPersistence
 {
     //  HeadBobbing||Climb(?)||GrappelHook||Gliding
     [Header("Movement")] // [header] gibt eine überschrift zum SerializedField
@@ -67,7 +67,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float maxSlopeAngle;
     private bool SlopeJump;
 
-
+    public void LoadData(GameDAta data)    {
+        this.transform.position = data.playerPosition;
+    }
+    public void SaveData(ref GameDAta data) 
+    {
+        data.playerPosition = this.transform.position;
+    }
     // Start is called before the first frame update
     void Start()
     {
